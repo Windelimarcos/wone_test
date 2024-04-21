@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Schedule</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    /*background: linear-gradient(45deg, #0C1B39ff, #99CF88ff);*/
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Treino da Semana</h1>
+  <div id="schedule"></div>
+</div>
+
+<script>
+  // Your JSON formatted workout schedule
+  const workoutSchedule = {
+        "Assessoria Esportiva": "TwinTreino de RML",
+        "Intervalo entre séries e exercícios": {
+          "Segunda a Quarta": "30 a 45s",
+          "Quinta a Domingo": "45 a 60s"
+        },
+        "Treino A": {
+          "Musculação": "Peitoral + Abdômen",
+          "Exercícios": {
+            "Supino Inclinado Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
+            "Supino Reto Barra": { "SxR": "4x20", "Técnica Avançada": "" },
+            "Crucifixo Reto Halteres": { "SxR": "5x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Peck Deck": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Oblíquos": { "SxR": "3x15", "Descanso": "30s" },
+            "Supra": { "SxR": "3x15", "Descanso": "30s" },
+            "Infra": { "SxR": "4x20", "Descanso": "30s" }
+          }
+        },
+        "Treino B": {
+          "Musculação": "Dorsais + Panturrilha",
+          "Exercícios": {
+            "Puxada Vertical Peg Pronada": { "SxR": "4x15", "Técnica Avançada": "Drop-Set 3x" },
+            "Remada Curvada Peg Supinada": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Remada Máquina Peg Neutra": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Levantamento Terra": { "SxR": "4x20", "Técnica Avançada": "" },
+            "Gêmeos Em Pé Smith": { "SxR": "5x25", "Técnica Avançada": "" },
+            "Gêmeos Leg Press": { "SxR": "3x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Gêmeos Em Pé Livre": { "SxR": "3x15", "Descanso": "30s" }
+          }
+        },
+        "Treino C": {
+          "Musculação": "Coxa",
+          "Exercícios": {
+            "Leg Press": { "SxR": "3x20", "Técnica Avançada": "" },
+            "Stiff Smith": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Cadeira Extensora": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Agachamento Livre": { "SxR": "4x20", "Técnica Avançada": "" }
+          }
+        },
+        "Treino D": {
+          "Musculação": "Deltóides + Abdômen",
+          "Exercícios": {
+            "Desenvolvimento Anterior": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Crucifixo Inverso Halteres": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Infra": { "SxR": "3x15", "Descanso": "30s" },
+            "Oblíquos": { "SxR": "4x20", "Descanso": "30s" },
+            "Supra": { "SxR": "3x15", "Descanso": "30s" }
+          }
+        },
+        "Treino E": {
+          "Musculação": "Bíceps + Tríceps",
+          "Exercícios": {
+            "Rosca Alternada Halteres": { "SxR": "2x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Rosca Direta Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
+            "Rosca Concentrada": { "SxR": "5x15", "Técnica Avançada": "" },
+            "Rosca Testa Barra Peg Pronada": { "SxR": "3x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
+            "Rosca Testa Halteres Peg Neutra": { "SxR": "2x20", "Técnica Avançada": "" },
+            "Supino Fechado": { "SxR": "4x20", "Técnica Avançada": "" }
+          }
+      }
+        
+    // ... include other workout schedules as needed
+  };
+
+    // Function to display the workout schedule in HTML
+    function displayWorkoutSchedule(schedule) {
+        const title = schedule["Assessoria Esportiva"];
+        document.querySelector('h1').innerHTML += title;
+            
+        const scheduleDiv = document.getElementById('schedule');
+        
+        // Add interval information
+        const intervals = schedule["Intervalo entre séries e exercícios"];
+        let intervalHTML = `<h2>Intervalo entre séries e exercícios</h2>`;
+        intervalHTML += `<p>Segunda a Quarta: ${intervals["Segunda a Quarta"]}</p>`;
+        intervalHTML += `<p>Quinta a Domingo: ${intervals["Quinta a Domingo"]}</p>`;
+        scheduleDiv.innerHTML += intervalHTML;
+        
+        // Add workouts
+        Object.keys(schedule).forEach((treino) => {
+        if (treino.startsWith('Treino ')) { // Make sure it's a workout key
+            const muscleGroup = schedule[treino]["Musculação"];
+            let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
+            tableHTML += `<table>`;
+            tableHTML += `<tr><th>Exercise</th><th>Sets x Reps</th><th>Advanced Technique</th><th>Descanso</th></tr>`;
+            const exercises = schedule[treino]["Exercícios"];
+            Object.keys(exercises).forEach((exercise) => {
+            const details = exercises[exercise];
+            const descanso = details["Descanso"] ? details["Descanso"] : '';
+            const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
+            tableHTML += `<tr>
+                            <td>${exercise}</td>
+                            <td>${details["SxR"]}</td>
+                            <td>${tecnicaAvancada}</td>
+                            <td>${descanso}</td>
+                            </tr>`;
+            });
+            tableHTML += `</table>`;
+            scheduleDiv.innerHTML += tableHTML;
+        }
+        });
+    }
+  
+  // Run the display function
+  displayWorkoutSchedule(workoutSchedule);
+</script>
+</body>
+</html>
