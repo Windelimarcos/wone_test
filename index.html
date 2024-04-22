@@ -3,141 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wone.fit</title>
-<link rel="stylesheet" href="mystyle.css">
+<title>Workout Schedule</title>
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
 </head>
 <body>
 <div class="container">
-  <h1>Treino da Semana - </h1>
-  <div id="schedule"></div>
+  <button onclick="showWeeklySchedule()">Plano de treino semanal</button>
+  <button onclick="showTodayWorkout()">Mostrar treino de hoje</button>
+
+  <div id="weeklySchedule" class="hidden"></div>
+  <div id="dailySchedule" class="hidden"></div>
 </div>
 
-<script>
-  // Your JSON formatted workout schedule
-  const workoutSchedule = {
-        "Assessoria Esportiva": "RML",
-        "obs": {
-          "Descrição": "Treino para ganho de resistência."
-        },
-        "Treino A": {
-          "Musculação": "Peitoral + Abdômen",
-          "Exercícios": {
-            "Supino Inclinado Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
-            "Supino Reto Barra": { "SxR": "4x20", "Técnica Avançada": "" },
-            "Crucifixo Reto Halteres": { "SxR": "5x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Peck Deck": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Oblíquos": { "SxR": "3x15", "Descanso": "30s" },
-            "Supra": { "SxR": "3x15", "Descanso": "30s" },
-            "Infra": { "SxR": "4x20", "Descanso": "30s" }
-          }
-        },
-        "Treino B": {
-          "Musculação": "Dorsais + Panturrilha",
-          "Exercícios": {
-            "Puxada Vertical Peg Pronada": { "SxR": "4x15", "Técnica Avançada": "Drop-Set 3x" },
-            "Remada Curvada Peg Supinada": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Remada Máquina Peg Neutra": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Levantamento Terra": { "SxR": "4x20", "Técnica Avançada": "" },
-            "Gêmeos Em Pé Smith": { "SxR": "5x25", "Técnica Avançada": "" },
-            "Gêmeos Leg Press": { "SxR": "3x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Gêmeos Em Pé Livre": { "SxR": "3x15", "Descanso": "30s" }
-          }
-        },
-        "Treino C": {
-          "Musculação": "Coxa",
-          "Exercícios": {
-            "Leg Press": { "SxR": "3x20", "Técnica Avançada": "" },
-            "Stiff Smith": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Cadeira Extensora": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Agachamento Livre": { "SxR": "4x20", "Técnica Avançada": "" }
-          }
-        },
-        "Treino D": {
-          "Musculação": "Deltóides + Abdômen",
-          "Exercícios": {
-            "Desenvolvimento Anterior": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Crucifixo Inverso Halteres": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Infra": { "SxR": "3x15", "Descanso": "30s" },
-            "Oblíquos": { "SxR": "4x20", "Descanso": "30s" },
-            "Supra": { "SxR": "3x15", "Descanso": "30s" }
-          }
-        },
-        "Treino E": {
-          "Musculação": "Bíceps + Tríceps",
-          "Exercícios": {
-            "Rosca Alternada Halteres": { "SxR": "2x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Rosca Direta Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
-            "Rosca Concentrada": { "SxR": "5x15", "Técnica Avançada": "" },
-            "Rosca Testa Barra Peg Pronada": { "SxR": "3x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-            "Rosca Testa Halteres Peg Neutra": { "SxR": "2x20", "Técnica Avançada": "" },
-            "Supino Fechado": { "SxR": "4x20", "Técnica Avançada": "" }
-          }
-      }
-        
-    // ... include other workout schedules as needed
-  };
-
-    // Function to display the workout schedule in HTML
-  function displayWorkoutSchedule(schedule) {
-    const title = schedule["Assessoria Esportiva"];
-    document.querySelector('h1').innerHTML += title;
-        
-    const scheduleDiv = document.getElementById('schedule');
-    
-    // Add interval information
-    const obs = schedule["obs"];
-    let intervalHTML = `<h2>Descrição:</h2>`;
-    intervalHTML += `<p>${obs["Descrição"]}</p>`;
-    scheduleDiv.innerHTML += intervalHTML;
-    
-    // Add workouts
-    Object.keys(schedule).forEach((treino) => {
-      if (treino.startsWith('Treino ')) { // Make sure it's a workout key
-          const muscleGroup = schedule[treino]["Musculação"];
-          let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
-          tableHTML += `<table>`;
-          tableHTML += `<tr><th>Exercise</th><th>Sets x Reps</th><th>Advanced Technique</th><th>Descanso</th></tr>`;
-          const exercises = schedule[treino]["Exercícios"];
-          Object.keys(exercises).forEach((exercise) => {
-          const details = exercises[exercise];
-          const descanso = details["Descanso"] ? details["Descanso"] : '';
-          const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
-          tableHTML += `<tr>
-                          <td>${exercise}</td>
-                          <td>${details["SxR"]}</td>
-                          <td>${tecnicaAvancada}</td>
-                          <td>${descanso}</td>
-                          </tr>`;
-          });
-
-          const restInterval = workout["Intervalo de descanso"];
-          tableHTML += `<tr><p>Intervalo de descanso: ${restInterval}</p></tr>`
-
-          tableHTML += `</table>`;
-          scheduleDiv.innerHTML += tableHTML;
-      }
-    });
-    let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
-      
-
-  }
-  
-  // Fetch the workout schedule JSON data
-  fetch('workoutPlans.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(jsonData => {
-    // Run the display function
-    displayWorkoutSchedule(jsonData);
-  })
-  .catch(e => {
-    console.error('Error loading workout schedule:', e);
-  });
-
-</script>
+<script src="scheduleScripts.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     "Treino A": {
       "Musculação": "Peitoral + Abdômen",
       "Intervalo de descanso": "30 a 45s",
+      "Dia": ["Monday"],
       "Exercícios": {
         "Supino Inclinado Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
         "Supino Reto Barra": { "SxR": "4x20", "Técnica Avançada": "" },
@@ -19,6 +20,7 @@
     "Treino B": {
       "Musculação": "Dorsais + Panturrilha",
       "Intervalo de descanso": "30 a 45s",
+        "Dia": ["Tuesday"],
       "Exercícios": {
         "Puxada Vertical Peg Pronada": { "SxR": "4x15", "Técnica Avançada": "Drop-Set 3x" },
         "Remada Curvada Peg Supinada": { "SxR": "5x15", "Técnica Avançada": "" },
@@ -32,6 +34,7 @@
     "Treino C": {
       "Musculação": "Coxa",
       "Intervalo de descanso": "45 a 60s",
+        "Dia": ["Wednesday"],
       "Exercícios": {
         "Leg Press": { "SxR": "3x20", "Técnica Avançada": "" },
         "Stiff Smith": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
@@ -42,6 +45,7 @@
     "Treino D": {
       "Musculação": "Deltóides + Abdômen",
       "Intervalo de descanso": "30 a 45s",
+        "Dia": ["Thursday"],
       "Exercícios": {
         "Desenvolvimento Anterior": { "SxR": "5x15", "Técnica Avançada": "" },
         "Crucifixo Inverso Halteres": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
@@ -53,6 +57,7 @@
     "Treino E": {
       "Musculação": "Bíceps + Tríceps",
       "Intervalo de descanso": "30 a 45s",
+        "Dia": ["Friday"],
       "Exercícios": {
         "Rosca Alternada Halteres": { "SxR": "2x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
         "Rosca Direta Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
