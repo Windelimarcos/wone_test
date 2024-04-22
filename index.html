@@ -3,36 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workout Schedule</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    /*background: linear-gradient(45deg, #0C1B39ff, #99CF88ff);*/
-    margin: 0;
-    padding: 20px;
-  }
-  .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
-</style>
+<title>Wone.fit</title>
+<link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
 <div class="container">
@@ -45,7 +17,7 @@
   const workoutSchedule = {
         "Assessoria Esportiva": "RML",
         "obs": {
-          "Descrição": "Treino para ganho dr resistência."
+          "Descrição": "Treino para ganho de resistência."
         },
         "Treino A": {
           "Musculação": "Peitoral + Abdômen",
@@ -106,45 +78,66 @@
   };
 
     // Function to display the workout schedule in HTML
-    function displayWorkoutSchedule(schedule) {
-        const title = schedule["Assessoria Esportiva"];
-        document.querySelector('h1').innerHTML += title;
-            
-        const scheduleDiv = document.getElementById('schedule');
+  function displayWorkoutSchedule(schedule) {
+    const title = schedule["Assessoria Esportiva"];
+    document.querySelector('h1').innerHTML += title;
         
-        // Add interval information
-        const obs = schedule["obs"];
-        let intervalHTML = `<h2>Descrição:</h2>`;
-        intervalHTML += `<p>${obs["Descrição"]}</p>`;
-        scheduleDiv.innerHTML += intervalHTML;
-        
-        // Add workouts
-        Object.keys(schedule).forEach((treino) => {
-        if (treino.startsWith('Treino ')) { // Make sure it's a workout key
-            const muscleGroup = schedule[treino]["Musculação"];
-            let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
-            tableHTML += `<table>`;
-            tableHTML += `<tr><th>Exercise</th><th>Sets x Reps</th><th>Advanced Technique</th><th>Descanso</th></tr>`;
-            const exercises = schedule[treino]["Exercícios"];
-            Object.keys(exercises).forEach((exercise) => {
-            const details = exercises[exercise];
-            const descanso = details["Descanso"] ? details["Descanso"] : '';
-            const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
-            tableHTML += `<tr>
-                            <td>${exercise}</td>
-                            <td>${details["SxR"]}</td>
-                            <td>${tecnicaAvancada}</td>
-                            <td>${descanso}</td>
-                            </tr>`;
-            });
-            tableHTML += `</table>`;
-            scheduleDiv.innerHTML += tableHTML;
-        }
-        });
-    }
+    const scheduleDiv = document.getElementById('schedule');
+    
+    // Add interval information
+    const obs = schedule["obs"];
+    let intervalHTML = `<h2>Descrição:</h2>`;
+    intervalHTML += `<p>${obs["Descrição"]}</p>`;
+    scheduleDiv.innerHTML += intervalHTML;
+    
+    // Add workouts
+    Object.keys(schedule).forEach((treino) => {
+      if (treino.startsWith('Treino ')) { // Make sure it's a workout key
+          const muscleGroup = schedule[treino]["Musculação"];
+          let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
+          tableHTML += `<table>`;
+          tableHTML += `<tr><th>Exercise</th><th>Sets x Reps</th><th>Advanced Technique</th><th>Descanso</th></tr>`;
+          const exercises = schedule[treino]["Exercícios"];
+          Object.keys(exercises).forEach((exercise) => {
+          const details = exercises[exercise];
+          const descanso = details["Descanso"] ? details["Descanso"] : '';
+          const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
+          tableHTML += `<tr>
+                          <td>${exercise}</td>
+                          <td>${details["SxR"]}</td>
+                          <td>${tecnicaAvancada}</td>
+                          <td>${descanso}</td>
+                          </tr>`;
+          });
+
+          const restInterval = workout["Intervalo de descanso"];
+          tableHTML += `<tr><p>Intervalo de descanso: ${restInterval}</p></tr>`
+
+          tableHTML += `</table>`;
+          scheduleDiv.innerHTML += tableHTML;
+      }
+    });
+    let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
+      
+
+  }
   
-  // Run the display function
-  displayWorkoutSchedule(workoutSchedule);
+  // Fetch the workout schedule JSON data
+  fetch('workoutPlans.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(jsonData => {
+    // Run the display function
+    displayWorkoutSchedule(jsonData);
+  })
+  .catch(e => {
+    console.error('Error loading workout schedule:', e);
+  });
+
 </script>
 </body>
 </html>
