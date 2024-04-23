@@ -2,41 +2,48 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initially hide all sections
     document.getElementById('weeklySchedule').style.display = 'none';
     document.getElementById('dailySchedule').style.display = 'none';
-  });
+});
   
   function showWeeklySchedule() {
-    fetch('workoutPlans.json')
-      .then(response => response.json())
-      .then(jsonData => {
-        displayWeeklySchedule(jsonData);
-        document.getElementById('weeklySchedule').style.display = 'block';
-        document.getElementById('dailySchedule').style.display = 'none';
-      })
-      .catch(error => {
-        console.error('Error loading the weekly schedule:', error);
-      });
+    if (document.getElementById('weeklySchedule').style.display == 'none') {
+        fetch('workoutPlans.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            displayWorkoutSchedule(jsonData);
+            document.getElementById('weeklySchedule').style.display = 'block';
+            document.getElementById('dailySchedule').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error loading the weekly schedule:', error);
+        });
+    }
   }
   
   function showTodayWorkout() {
-    fetch('workoutPlans.json')
-      .then(response => response.json())
-      .then(jsonData => {
-        const todaysTraining = getTodaysTraining(jsonData);
-        displayTodaysWorkout(todaysTraining);
-        document.getElementById('weeklySchedule').style.display = 'none';
-        document.getElementById('dailySchedule').style.display = 'block';
-      })
-      .catch(error => {
-        console.error('Error loading the daily workout:', error);
-      });
+    if (document.getElementById('dailySchedule').style.display == 'none') {
+        fetch('workoutPlans.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          const todaysTraining = getTodaysTraining(jsonData);
+          displayTodaysWorkout(todaysTraining);
+          document.getElementById('weeklySchedule').style.display = 'none';
+          document.getElementById('dailySchedule').style.display = 'block';
+        })
+        .catch(error => {
+          console.error('Error loading the daily workout:', error);
+        });
+    }
   }
   
     // Function to display the workout schedule in HTML
     function displayWorkoutSchedule(schedule) {
+
     const title = schedule["Assessoria Esportiva"];
-    document.querySelector('#weekSchedule').innerHTML += title;
+    let h1_title = `<h1>Treino da Semana - </h1>`
+    h1_title += `<h1>${title}</h1>`
+    document.querySelector('#weeklySchedule').innerHTML += h1_title;
         
-    const scheduleDiv = document.getElementById('schedule');
+    const scheduleDiv = document.getElementById('weeklySchedule');
 
     // Add interval information
     const obs = schedule["obs"];
@@ -51,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const muscleGroup = schedule[treino]["Musculação"];
             let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
             tableHTML += `<table>`;
-            tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th><th>Descanso</th></tr>`;
+            tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th></tr>`;
             const exercises = schedule[treino]["Exercícios"];
             Object.keys(exercises).forEach((exercise) => {
             const details = exercises[exercise];
@@ -61,13 +68,12 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td>${exercise}</td>
                             <td>${details["SxR"]}</td>
                             <td>${tecnicaAvancada}</td>
-                            <td>${descanso}</td>
                             </tr>`;
             });
 
             // Intervalo de Descanso
             const restInterval = schedule[treino]["Intervalo de descanso"];
-            tableHTML += `<tr><th colspan="3">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
+            tableHTML += `<tr><th colspan="2">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
 
             tableHTML += `</table>`;
             scheduleDiv.innerHTML += tableHTML;
@@ -89,27 +95,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const muscleGroup = workoutDetails["Musculação"];
     let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
             tableHTML += `<table>`;
-            tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th><th>Descanso</th></tr>`;
+            tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th></tr>`;
             const exercises = workoutDetails["Exercícios"];
             Object.keys(exercises).forEach((exercise) => {
             const details = exercises[exercise];
-            const descanso = details["Descanso"] ? details["Descanso"] : '';
+            //const descanso = details["Descanso"] ? details["Descanso"] : '';
             const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
             tableHTML += `<tr>
                             <td>${exercise}</td>
                             <td>${details["SxR"]}</td>
                             <td>${tecnicaAvancada}</td>
-                            <td>${descanso}</td>
                             </tr>`;
             });
 
             // Intervalo de Descanso
             const restInterval = workoutDetails["Intervalo de descanso"];
-            tableHTML += `<tr><th colspan="3">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
+            tableHTML += `<tr><th colspan="2">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
 
             tableHTML += `</table>`;
 
-    document.getElementById('dailySchedule').innerHTML = tableHTML;
+    document.getElementById('dailySchedule').innerHTML += tableHTML;
     }
 
     function getTodaysTraining(schedule) {
@@ -117,9 +122,10 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(today,schedule['Treino A']["Dia"], schedule)
     for (const key in schedule) {
         if (key.startsWith('Treino') && schedule[key]["Dia"].includes(today)) {
-        
+            
         const title = schedule["Assessoria Esportiva"];
-        document.querySelector('#dailyTraining').innerHTML += title;
+        let h1_title = `<h1>Treino de Hoje - ${title}</h1>`
+        document.querySelector('#dailySchedule').innerHTML += h1_title;
             
         return [schedule[key], key];
         }

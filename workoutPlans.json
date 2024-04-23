@@ -12,9 +12,9 @@
         "Supino Reto Barra": { "SxR": "4x20", "Técnica Avançada": "" },
         "Crucifixo Reto Halteres": { "SxR": "5x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
         "Peck Deck": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Oblíquos": { "SxR": "3x15", "Descanso": "30s" },
-        "Supra": { "SxR": "3x15", "Descanso": "30s" },
-        "Infra": { "SxR": "4x20", "Descanso": "30s" }
+        "Oblíquos": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
+        "Supra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
+        "Infra": { "SxR": "4x20", "Técnica Avançada": "Descanso 30s" }
       }
     },
     "Treino B": {
@@ -28,7 +28,7 @@
         "Levantamento Terra": { "SxR": "4x20", "Técnica Avançada": "" },
         "Gêmeos Em Pé Smith": { "SxR": "5x25", "Técnica Avançada": "" },
         "Gêmeos Leg Press": { "SxR": "3x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Gêmeos Em Pé Livre": { "SxR": "3x15", "Descanso": "30s" }
+        "Gêmeos Em Pé Livre": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" }
       }
     },
     "Treino C": {
@@ -49,9 +49,9 @@
       "Exercícios": {
         "Desenvolvimento Anterior": { "SxR": "5x15", "Técnica Avançada": "" },
         "Crucifixo Inverso Halteres": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Infra": { "SxR": "3x15", "Descanso": "30s" },
-        "Oblíquos": { "SxR": "4x20", "Descanso": "30s" },
-        "Supra": { "SxR": "3x15", "Descanso": "30s" }
+        "Infra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
+        "Oblíquos": { "SxR": "4x20", "Técnica Avançada": "Descanso 30s" },
+        "Supra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" }
       }
     },
     "Treino E": {
