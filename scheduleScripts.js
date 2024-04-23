@@ -3,52 +3,57 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('weeklySchedule').style.display = 'none';
     document.getElementById('dailySchedule').style.display = 'none';
 });
-  
-  function showWeeklySchedule() {
-    if (document.getElementById('weeklySchedule').style.display == 'none') {
-        fetch('workoutPlans.json')
-        .then(response => response.json())
-        .then(jsonData => {
-            displayWorkoutSchedule(jsonData);
-            document.getElementById('weeklySchedule').style.display = 'block';
-            document.getElementById('dailySchedule').style.display = 'none';
-        })
-        .catch(error => {
-            console.error('Error loading the weekly schedule:', error);
-        });
+
+    function clearContent() {
+        document.getElementById('weeklySchedule').innerHTML = '';
+        document.getElementById('dailySchedule').innerHTML = '';
     }
-  }
   
-  function showTodayWorkout() {
-    if (document.getElementById('dailySchedule').style.display == 'none') {
-        fetch('workoutPlans.json')
-        .then(response => response.json())
-        .then(jsonData => {
-          const todaysTraining = getTodaysTraining(jsonData);
-          displayTodaysWorkout(todaysTraining);
-          document.getElementById('weeklySchedule').style.display = 'none';
-          document.getElementById('dailySchedule').style.display = 'block';
-        })
-        .catch(error => {
-          console.error('Error loading the daily workout:', error);
-        });
+    function showWeeklySchedule() {
+        if (document.getElementById('weeklySchedule').style.display == 'none') {
+            clearContent();
+            fetch('workoutPlans.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                displayWorkoutSchedule(jsonData);
+                document.getElementById('weeklySchedule').style.display = 'block';
+                document.getElementById('dailySchedule').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error loading the weekly schedule:', error);
+            });
+        }
     }
-  }
+  
+    function showTodayWorkout() {
+        if (document.getElementById('dailySchedule').style.display == 'none') {
+            clearContent();
+            fetch('workoutPlans.json')
+                .then(response => response.json())
+                .then(jsonData => {
+                    const todaysTraining = getTodaysTraining(jsonData);
+                    displayTodaysWorkout(todaysTraining);
+                    document.getElementById('weeklySchedule').style.display = 'none';
+                    document.getElementById('dailySchedule').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error loading the daily workout:', error);
+                });
+        }
+    }
   
     // Function to display the workout schedule in HTML
     function displayWorkoutSchedule(schedule) {
 
     const title = schedule["Assessoria Esportiva"];
-    let h1_title = `<h1>Treino da Semana - </h1>`
-    h1_title += `<h1>${title}</h1>`
+    let h1_title = `<h4>Treino de ${title}</h4>`
     document.querySelector('#weeklySchedule').innerHTML += h1_title;
         
     const scheduleDiv = document.getElementById('weeklySchedule');
 
-    // Add interval information
+    // Add description information
     const obs = schedule["obs"];
-    let intervalHTML = `<h2>Descrição:</h2>`;
-    intervalHTML += `<p>${obs["Descrição"]}</p>`;
+    let intervalHTML = `<p>Descrição: ${obs["Descrição"]}</p>`;
     scheduleDiv.innerHTML += intervalHTML;
 
     // Add workouts
@@ -124,9 +129,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (key.startsWith('Treino') && schedule[key]["Dia"].includes(today)) {
             
         const title = schedule["Assessoria Esportiva"];
-        let h1_title = `<h1>Treino de Hoje - ${title}</h1>`
+        let h1_title = `<h4>Treino de ${title}</h4>`
         document.querySelector('#dailySchedule').innerHTML += h1_title;
-            
+        
+        // Add obs information
+        const obs = schedule["obs"];
+        let intervalHTML = `<p>Descrição: ${obs["Descrição"]}</p>`;
+        document.querySelector('#dailySchedule').innerHTML += intervalHTML;
+
         return [schedule[key], key];
         }
     }
