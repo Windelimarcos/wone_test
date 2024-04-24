@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const details = exercises[exercise];
             const descanso = details["Descanso"] ? details["Descanso"] : '';
             const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
-            tableHTML += `<tr>
-                            <td>${exercise}</td>
+            tableHTML +=    `<tr>
+                            <td data-youtube-search="Leandro Twin ${exercise}">${exercise}</td>
                             <td>${details["SxR"]}</td>
-                            <td>${tecnicaAvancada}</td>
+                            <td data-youtube-search="Leandro Twin ${tecnicaAvancada}">${tecnicaAvancada}</td>
                             </tr>`;
             });
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const details = exercises[exercise];
                 //const descanso = details["Descanso"] ? details["Descanso"] : '';
                 const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
-                tableHTML += `<tr>
+                tableHTML +=    `<tr>
                                 <td data-youtube-search="Leandro Twin ${exercise}">${exercise}</td>
                                 <td>${details["SxR"]}</td>
                                 <td data-youtube-search="Leandro Twin ${tecnicaAvancada}">${tecnicaAvancada}</td>
