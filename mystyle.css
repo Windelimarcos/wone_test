@@ -1,9 +1,33 @@
+
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   /*background: linear-gradient(45deg, #0C1B39ff, #99CF88ff);*/
   margin: 0;
   padding: 20px;
+  flex-direction: column;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#wone {
+  display: inline; /* Makes <h1> elements inline so they appear on the same line */
+  margin: 0; /* Removes default margin from <h1> elements */
+  padding: 0; /* Removes default padding from <h1> elements */
+
+  color: yellowgreen;
+  font-weight: 900;
+}
+#fit {
+  display: inline; /* Makes <h1> elements inline so they appear on the same line */
+  margin: 0; /* Removes default margin from <h1> elements */
+  padding: 0; /* Removes default padding from <h1> elements */
+
+  color:midnightblue;
+  font-weight: 700;
 }
 
 #buttons {

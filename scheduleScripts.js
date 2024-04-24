@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(jsonData => {
                 displayWorkoutSchedule(jsonData);
                 document.getElementById('weeklySchedule').style.display = 'block';
+                attachListeners();
                 document.getElementById('dailySchedule').style.display = 'none';
             })
             .catch(error => {
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const todaysTraining = getTodaysTraining(jsonData);
                     displayTodaysWorkout(todaysTraining);
                     document.getElementById('weeklySchedule').style.display = 'none';
+                    attachListeners();
                     document.getElementById('dailySchedule').style.display = 'block';
                 })
                 .catch(error => {
@@ -43,9 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     // Function to display the workout schedule in HTML
-    function displayWorkoutSchedule(schedule) {
+    function displayWorkoutSchedule(workoutPlans) {
 
-    const title = schedule["Assessoria Esportiva"];
+    let schedule = workoutPlans.workouts[0]
+
+    const title = schedule["tipo_de_treino"];
     let h1_title = `<h4>Treino de ${title}</h4>`
     document.querySelector('#weeklySchedule').innerHTML += h1_title;
         
@@ -57,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
     scheduleDiv.innerHTML += intervalHTML;
 
     // Add workouts
-    console.log(schedule)
     Object.keys(schedule).forEach((treino) => {
         if (treino.startsWith('Treino ')) { // Make sure it's a workout key
             const muscleGroup = schedule[treino]["Musculação"];
@@ -88,76 +91,71 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     function displayTodaysWorkout(workout) {
-    console.log(workout)
-    const workoutDetails = workout[0]
-    const treino = workout[1]
+        const workoutDetails = workout[0]
+        const treino = workout[1]
 
-    if (!workoutDetails) {
-        document.getElementById('dailySchedule').innerHTML = "<p>Não há treino hoje.</p>";
-        return;
-    }
+        if (!workoutDetails) {
+            document.getElementById('dailySchedule').innerHTML = "<p>Não há treino hoje.</p>";
+            return;
+        }
 
-    const muscleGroup = workoutDetails["Musculação"];
-    let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
-            tableHTML += `<table>`;
-            tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th></tr>`;
-            const exercises = workoutDetails["Exercícios"];
-            Object.keys(exercises).forEach((exercise) => {
-            const details = exercises[exercise];
-            //const descanso = details["Descanso"] ? details["Descanso"] : '';
-            const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
-            tableHTML += `<tr>
-                            <td>${exercise}</td>
-                            <td>${details["SxR"]}</td>
-                            <td>${tecnicaAvancada}</td>
-                            </tr>`;
-            });
+        const muscleGroup = workoutDetails["Musculação"];
+        let tableHTML = `<h2>${treino} - ${muscleGroup}</h2>`;
+                tableHTML += `<table>`;
+                tableHTML += `<tr><th>Exercícios</th><th>SxR</th><th>Técnica Avançada</th></tr>`;
+                const exercises = workoutDetails["Exercícios"];
+                Object.keys(exercises).forEach((exercise) => {
+                const details = exercises[exercise];
+                //const descanso = details["Descanso"] ? details["Descanso"] : '';
+                const tecnicaAvancada = details["Técnica Avançada"] ? details["Técnica Avançada"] : '';
+                tableHTML += `<tr>
+                                <td data-youtube-search="Leandro Twin ${exercise}">${exercise}</td>
+                                <td>${details["SxR"]}</td>
+                                <td data-youtube-search="Leandro Twin ${tecnicaAvancada}">${tecnicaAvancada}</td>
+                                </tr>`;
+                });
 
-            // Intervalo de Descanso
-            const restInterval = workoutDetails["Intervalo de descanso"];
-            tableHTML += `<tr><th colspan="2">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
+                // Intervalo de Descanso
+                const restInterval = workoutDetails["Intervalo de descanso"];
+                tableHTML += `<tr><th colspan="2">Intervalo de descanso:</th><td> ${restInterval}</td></tr>`;
 
-            tableHTML += `</table>`;
+                tableHTML += `</table>`;
 
-    document.getElementById('dailySchedule').innerHTML += tableHTML;
+        document.getElementById('dailySchedule').innerHTML += tableHTML;
     }
 
     function getTodaysTraining(schedule) {
-    const today = new Date().toLocaleString('en-US', { weekday: 'long' });
-    console.log(today,schedule['Treino A']["Dia"], schedule)
-    for (const key in schedule) {
-        if (key.startsWith('Treino') && schedule[key]["Dia"].includes(today)) {
+        const today = new Date().toLocaleString('en-US', { weekday: 'long' });
+
+        let todaysWorkout = schedule.workouts[0] // degub
+
+        for (const key in todaysWorkout) {
+            if (key.startsWith('Treino') && todaysWorkout[key]["Dia"].includes(today)) {
+                
+            const title = todaysWorkout["tipo_de_treino"];
+            let h1_title = `<h4>Treino de ${title}</h4>`
+            document.querySelector('#dailySchedule').innerHTML += h1_title;
             
-        const title = schedule["Assessoria Esportiva"];
-        let h1_title = `<h4>Treino de ${title}</h4>`
-        document.querySelector('#dailySchedule').innerHTML += h1_title;
-        
-        // Add obs information
-        const obs = schedule["obs"];
-        let intervalHTML = `<p>Descrição: ${obs["Descrição"]}</p>`;
-        document.querySelector('#dailySchedule').innerHTML += intervalHTML;
+            // Add obs information
+            const obs = todaysWorkout["obs"];
+            let intervalHTML = `<p>Descrição: ${obs["Descrição"]}</p>`;
+            document.querySelector('#dailySchedule').innerHTML += intervalHTML;
 
-        return [schedule[key], key];
+            return [todaysWorkout[key], key];
+            }
         }
-    }
-    return null;
+        return null;
     }
 
-    /* Fetch the workout schedule JSON data
-    fetch('workoutPlans.json')
-    .then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    // Abre youtube
+    function attachListeners() {
+        const clickableItems = document.querySelectorAll('[data-youtube-search]');
+        clickableItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const searchTerm = this.getAttribute('data-youtube-search');
+                const query = encodeURIComponent(searchTerm);
+                const youtubeUrl = "https://www.youtube.com/results?search_query=" + query;
+                window.open(youtubeUrl, '_blank');
+            });
+        });
     }
-    return response.json();
-    })
-    .then(jsonData => {
-    // Run the display function
-    const todaysTraining = getTodaysTraining(jsonData);
-    displayTodaysWorkout(todaysTraining);
-    //displayWorkoutSchedule(jsonData);
-    })
-    .catch(e => {
-    console.error('Error loading workout schedule:', e);
-    }); 
-    */
