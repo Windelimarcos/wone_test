@@ -1,7 +1,12 @@
+let workoutId;
+
 document.addEventListener("DOMContentLoaded", function() {
     // Initially hide all sections
     document.getElementById('weeklySchedule').style.display = 'none';
     document.getElementById('dailySchedule').style.display = 'none';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    workoutId = urlParams.get('workoutId');
 });
 
     function clearContent() {
