@@ -7,7 +7,14 @@
       "obs": {
         "Descrição": "Treino para ganho de resistência."
       },
-      "access": ["ec28b13f73fd09ac2cf196b09d91b77a2b479066c971448ef569aecd2d9dc870", "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253","12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca"],
+      "access": [
+        "ec28b13f73fd09ac2cf196b09d91b77a2b479066c971448ef569aecd2d9dc870", 
+        "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253",
+        "12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca",
+        "aeb2d6675c77edc558fbecd4c2d99f462e733a98480b976a86f5c9c13759306a",
+        "c5f39181e81c322211dd03fb87dc7b81126b6c6e38070bab738f0b6ed0b01122",
+        "f4cf6cea127df51c8bda787022373176b7183db68ad230b667acfd40af84d385"
+      ],
       "Treino A": {
         "Musculação": "Peitoral + Abdômen",
         "Intervalo de descanso": "30 a 45s",
