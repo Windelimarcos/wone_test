@@ -60,8 +60,52 @@ th {
   background-color: #f2f2f2;
 }
 
+#timer {
+  background-color: var(--light); /* Light background for the timer */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
+  text-align: center;
+  margin: 20px auto;
+  /* width: 100%; */ /* Fixed width */
+}
+
+#timer h3 {
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+#timer span {
+  font-size: 2em; /* Larger font size for the time display */
+  font-weight: bold;
+  color: var(--primary);
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.danger {
+  background-color:rgb(210, 5, 5);
+}
+
+button:hover {
+  background-color: var(--dark);
+}
+
+button:active {
+  transform: translateY(2px); /* Slight push down effect on click */
+}
+
 @media screen and (min-width: 751px) {
   .container {
-    max-width: 40vw;
+    max-width: 751px;
   }
 }
