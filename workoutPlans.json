@@ -12,7 +12,6 @@
         "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253",
         "12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca",
         "aeb2d6675c77edc558fbecd4c2d99f462e733a98480b976a86f5c9c13759306a",
-        "c5f39181e81c322211dd03fb87dc7b81126b6c6e38070bab738f0b6ed0b01122",
         "f4cf6cea127df51c8bda787022373176b7183db68ad230b667acfd40af84d385"
       ],
       "Treino A": {
@@ -164,6 +163,93 @@
         "Supino Fechado": { "SxR": "4x20", "Técnica Avançada": "" }
       }
     }
-  }
+  },
+    {
+      "id": "workout_003",
+      "dono_do_treino": "user_00",
+      "tipo_de_treino": "Hipertrofia",
+      "obs": {
+        "Descrição": "Treino para ganho de hipertrofia."
+      },
+      "access": [
+        "c5f39181e81c322211dd03fb87dc7b81126b6c6e38070bab738f0b6ed0b01122",
+      ],
+      "Treino A": {
+        "Musculação": "Pernas + Abdômen",
+        "Intervalo de descanso": "1 a 2 minutos",
+        "Dia": ["Monday"],
+        "Exercícios": {
+          "Cadeira Abdutora": { "SxR": "3x25", "Técnica Avançada": "Aquecimento leve" },
+          "Agachamento Barra Livre Pernas Abduzidas": { "SxR": "2x12, 2x8", "Técnica Avançada": "Aumentar a carga nas duas últimas séries" },
+          "Agachamento Sumo com Halter": { "SxR": "3x12", "Técnica Avançada": "Corpo levemente inclinado para frente" },
+          "Levantamento Terra Sumo": { "SxR": "3x10", "Técnica Avançada": "" },
+          "Stiff com Halter": { "SxR": "3x10", "Técnica Avançada": "Bombear duas embaixo" },
+          "Mesa Flexora": { "SxR": "3x10, 3x8", "Técnica Avançada": "Diminuir o peso nas últimas" },
+          "Afundo com Halter no Banco": { "SxR": "3x36", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Extensão de Quadril no Cross": { "SxR": "4x24", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Abdominal na Máquina": { "SxR": "6x15", "Técnica Avançada": "" }
+        }
+      },
+      "Treino B": {
+        "Musculação": "Costas + Bíceps",
+        "Intervalo de descanso": "1 minuto",
+        "Dia": ["Tuesday"],
+        "Exercícios": {
+          "Puxada Supinada no Pulley": { "SxR": "4x10", "Técnica Avançada": "Diminuir o peso nas últimas" },
+          "Puxada Aberta Barra Romana": { "SxR": "3x15", "Técnica Avançada": "Descansos curtos entre séries" },
+          "Remada Fechada no Triângulo": { "SxR": "3x12", "Técnica Avançada": "Segurando 3 seg. embaixo em todas as rep." },
+          "Extensão de Ombros no Cross com Barra Reta": { "SxR": "3x12", "Técnica Avançada": "" },
+          "Remada Aberta com Barra Média Pegada Supinada": { "SxR": "1x12, 2x10", "Técnica Avançada": "Aumentar a carga nas duas últimas" },
+          "Rosca Bíceps com Halteres Pegada Neutra": { "SxR": "3x10", "Técnica Avançada": "Lentas" },
+          "Rosca Bíceps no Cross com Barra Reta": { "SxR": "3x20", "Técnica Avançada": "Curtas em cima + completa" }
+        }
+      },
+      "Treino C": {
+        "Musculação": "Pernas",
+        "Intervalo de descanso": "1 a 2 minutos",
+        "Dia": ["Wednesday"],
+        "Exercícios": {
+          "Cadeira Extensora": { "SxR": "5x12", "Técnica Avançada": "" },
+          "Agachamento Pernas Paralelas no Smith": { "SxR": "3x18", "Técnica Avançada": "Diminuir o peso + 10" },
+          "Passada para Frente com Halteres": { "SxR": "3x24", "Técnica Avançada": "Pesado" },
+          "Leg Press 45° Pernas Paralelas": { "SxR": "4x12", "Técnica Avançada": "Segura 10 seg. de isometria" },
+          "Hack Machine ou Barra Hexagonal": { "SxR": "5x12", "Técnica Avançada": "Aumentar a carga nas duas últimas" },
+          "Cadeira Extensora Unilateral": { "SxR": "3x28", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Cadeira Aductora": { "SxR": "3x15", "Técnica Avançada": "" },
+          "Flexão Plantar no Leg Press": { "SxR": "3x20", "Técnica Avançada": "" }
+        }
+      },
+      "Treino D": {
+        "Musculação": "Ombros + Abdômen",
+        "Intervalo de descanso": "1 a 2 minutos",
+        "Dia": ["Thursday"],
+        "Exercícios": {
+          "Desenvolvimento Aberto com Barra Longa": { "SxR": "3x10", "Técnica Avançada": "" },
+          "Desenvolvimento Aberto Unilateral com Halteres": { "SxR": "3x24", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Abdução de Ombros com Halteres": { "SxR": "3x10", "Técnica Avançada": "" },
+          "Flexão de Ombros com Halteres": { "SxR": "3x20", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Flexão de Ombros com Barra Média": { "SxR": "3x10", "Técnica Avançada": "" },
+          "Abdominal Total com Peso": { "SxR": "4x15", "Técnica Avançada": "" },
+          "Remada Alta com Barra W ou Reta": { "SxR": "3x12", "Técnica Avançada": "Lentas" },
+          "Tríceps Testa com Halteres no Banco Reto": { "SxR": "3x15", "Técnica Avançada": "" },
+          "Rosca Tríceps com Barra Reta no Cross": { "SxR": "3x20", "Técnica Avançada": "" }
+        }
+      },
+      "Treino E": {
+        "Musculação": "Glúteos e Pernas",
+        "Intervalo de descanso": "2 minutos",
+        "Dia": ["Friday"],
+        "Exercícios": {
+          "Elevação de Quadril com Barra Longa": { "SxR": "3x12", "Técnica Avançada": "Segurando 2 seg. embaixo" },
+          "Agachamento Unilateral com Halter Sobre Dois Steps": { "SxR": "3x48", "Técnica Avançada": "Repetições divididas entre direita e esquerda com e sem peso" },
+          "Cadeira Flexora": { "SxR": "3x10", "Técnica Avançada": "Segurando 3 seg. em isometria" },
+          "Leg Press 45° Unilateral": { "SxR": "4x24", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Agachamento Sumo com Halter": { "SxR": "3x12", "Técnica Avançada": "Bombear duas embaixo" },
+          "Stiff com Barra Média": { "SxR": "3x10", "Técnica Avançada": "" },
+          "Stiff Unilateral com Halter": { "SxR": "3x24", "Técnica Avançada": "Repetições divididas entre direita e esquerda" },
+          "Flexão Plantar no Leg Press ou na Máquina": { "SxR": "4x20", "Técnica Avançada": "" }
+        }
+      }
+    }
   ]
 }
