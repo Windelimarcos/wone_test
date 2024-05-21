@@ -1,6 +1,81 @@
 {
   "workouts":[
     {
+       "id": "workout_001",
+       "dono_do_treino": "user_00",
+       "tipo_de_treino": "Força",
+       "obs": {
+        "Descrição": "Treino para ganho de força. Esse treino deve ser repetido por 4 semanas, com incremento dos pesos a cada dia."
+       },
+       "access": ["ec28b13f73fd09ac2cf196b09d91b77a2b479066c971448ef569aecd2d9dc870", 
+       "12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca",
+       "aeb2d6675c77edc558fbecd4c2d99f462e733a98480b976a86f5c9c13759306a",
+       "f4cf6cea127df51c8bda787022373176b7183db68ad230b667acfd40af84d385"],
+       "Treino A": {
+        "Musculação": "Deltóides + Tríceps + Abdômen",
+        "Intervalo de descanso": "2 a 5m",
+        "Dia": ["Monday"],
+        "Exercícios": {
+         "Desenvolvimento Anterior": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Elevação Frontal Cross Corda": { "SxR": "5x3", "Técnica Avançada": "" },
+         "Rosca Francesa Halteres Peg Neutra": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Rosca Testa Halteres Peg Supinada": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Abdominal Oblíquos": { "SxR": "4x6", "Técnica Avançada": "Descanso 45s" },
+         "Abdominal Infra": { "SxR": "4x6", "Técnica Avançada": "Descanso 45s" },
+         "Aeróbio": { "SxR": "1", "Técnica Avançada": "40 min. (Zona 3)" }
+        }
+       },
+       "Treino B": {
+        "Musculação": "Dorsais",
+        "Intervalo de descanso": "2 a 5m",
+        "Dia": ["Tuesday"],
+        "Exercícios": {
+         "Puxada Vertical Peg Supinada": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Remada Unilateral Peg Pronada": { "SxR": "3x3", "Técnica Avançada": "" },
+         "Remada Curvada Peg Pronada": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Levantamento Terra": { "SxR": "3x5", "Técnica Avançada": "" },
+         "Aeróbio": { "SxR": "1", "Técnica Avançada": "40 min. (zona 3)" }
+        }
+       },
+       "Treino C": {
+        "Musculação": "Panturrilha + Coxa",
+        "Intervalo de descanso": "2 a 5m",
+        "Dia": ["Wednesday"],
+        "Exercícios": {
+         "Gêmeos Em Pé Máquina": { "SxR": "5x8", "Técnica Avançada": "" },
+         "Gêmeos Leg Press": { "SxR": "5x8", "Técnica Avançada": "" },
+         "Leg Press": { "SxR": "3x5", "Técnica Avançada": "" },
+         "Stiff Barra": { "SxR": "5x3", "Técnica Avançada": "" },
+         "Agachamento Livre": { "SxR": "5x5", "Técnica Avançada": "" }
+        }
+       },
+       "Treino D": {
+        "Musculação": "Peitoral + Abdômen",
+        "Intervalo de descanso": "2 a 5m",
+        "Dia": ["Thursday"],
+        "Exercícios": {
+         "Supino Reto Smith": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Supino Reto Barra": { "SxR": "5x3", "Técnica Avançada": "" },
+         "Supino Inclinado Barra": { "SxR": "3x5", "Técnica Avançada": "" },
+         "Abdominal Infra": { "SxR": "4x8", "Técnica Avançada": "Descanso 45s" },
+         "Abdominal Oblíquos": { "SxR": "4x8", "Técnica Avançada": "Descanso 45s" },
+         "Aeróbio": { "SxR": "1", "Técnica Avançada": "40 min. (zona 3)" }
+        }
+       },
+       "Treino E": {
+        "Musculação": "Bíceps + Trapézio",
+        "Intervalo de descanso": "2 a 5m",
+        "Dia": ["Friday"],
+        "Exercícios": {
+         "Rosca Direta Barra Reta ou Barra W": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Rosca Direta Cross": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Remada Alta Halteres": { "SxR": "5x3", "Técnica Avançada": "" },
+         "Encolhimento Smith Anterior": { "SxR": "5x5", "Técnica Avançada": "" },
+         "Aeróbio": { "SxR": "1", "Técnica Avançada": "40 min. (zona 3)" }
+        }
+       }
+    },
+    {
       "id": "workout_001",
       "dono_do_treino": "user_00",
       "tipo_de_treino": "RML",
