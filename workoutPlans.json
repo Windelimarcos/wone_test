@@ -7,10 +7,7 @@
        "obs": {
         "Descrição": "Treino para ganho de força. Esse treino deve ser repetido por 4 semanas, com incremento dos pesos a cada dia."
        },
-       "access": ["ec28b13f73fd09ac2cf196b09d91b77a2b479066c971448ef569aecd2d9dc870", 
-       "12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca",
-       "aeb2d6675c77edc558fbecd4c2d99f462e733a98480b976a86f5c9c13759306a",
-       "f4cf6cea127df51c8bda787022373176b7183db68ad230b667acfd40af84d385", "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253"],
+       "access": [],
        "Treino A": {
         "Musculação": "Deltóides + Tríceps + Abdômen",
         "Intervalo de descanso": "2 a 5m",
@@ -247,7 +244,8 @@
         "Descrição": "Treino para ganho de hipertrofia."
       },
       "access": [
-        "c5f39181e81c322211dd03fb87dc7b81126b6c6e38070bab738f0b6ed0b01122"
+        "c5f39181e81c322211dd03fb87dc7b81126b6c6e38070bab738f0b6ed0b01122",
+        "236b28b438b0147fd9015a820f3909ffe5cfbdc0dde4347ca4fd75bbfae3f75e"
       ],
       "Treino A": {
         "Musculação": "Pernas + Abdômen",
@@ -325,6 +323,90 @@
           "Flexão Plantar no Leg Press ou na Máquina": { "SxR": "4x20", "Técnica Avançada": "" }
         }
       }
+    },
+    {
+    "id": "workout_004",
+    "dono_do_treino": "user_00",
+    "tipo_de_treino": "Hipertrofia",
+    "obs": {
+        "Descrição": "Treino para Hipertrofia. Esse treino deve ser repetido por 8 a 12 semanas, com incremento dos pesos a cada semana."
+    },
+    "access": [
+        "ec28b13f73fd09ac2cf196b09d91b77a2b479066c971448ef569aecd2d9dc870",
+        "12a433c21341161033c155ff6c7f9ebf819ecbd86d4bde19e2fd4d16be33c8ca",
+        "aeb2d6675c77edc558fbecd4c2d99f462e733a98480b976a86f5c9c13759306a",
+        "f4cf6cea127df51c8bda787022373176b7183db68ad230b667acfd40af84d385",
+        "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253"
+    ],
+    "Treino A": {
+        "Musculação": "Dorsais + Antebraço",
+        "Intervalo de descanso": "45 a 60s",
+        "Dia": ["Monday"],
+        "Exercícios": {
+            "Remada Articulada Peg Pronada": {"SxR": "3x12", "Técnica Avançada": ""},
+            "Remada Curvada Peg Pronada + Remada Curvada Peg Supinada": {"SxR": "3x8", "Técnica Avançada": "Bi-Set"},
+            "Levantamento Terra": {"SxR": "3x12", "Técnica Avançada": ""},
+            "Remada Cross Peg Supinada": {"SxR": "7x10", "Técnica Avançada": "FST-7"},
+            "Rotacional de Punho": {"SxR": "3xF", "Técnica Avançada": ""},
+            "Extensão de Punho Barra Sentado": {"SxR": "3x12", "Técnica Avançada": ""},
+            "Rosca Inversa Cross": {"SxR": "2x8", "Técnica Avançada": "Drop-Set 3x"}
+        }
+    },
+    "Treino B": {
+        "Musculação": "Peitoral + Abdômen",
+        "Intervalo de descanso": "45 a 60s",
+        "Dia": ["Tuesday"],
+        "Exercícios": {
+            "Cross-Over Polia Alta": {"SxR": "5x12", "Técnica Avançada": "Drop-Set 3x"},
+            "Supino Inclinado Halteres": {"SxR": "5x8", "Técnica Avançada": ""},
+            "Supino Reto Halteres": {"SxR": "5x12", "Técnica Avançada": "Rest 'n' Pause 3x"},
+            "Crucifixo Reto Halteres": {"SxR": "5x10", "Técnica Avançada": "Descanso 30s"},
+            "Infra": {"SxR": "4x12", "Técnica Avançada": "Descanso 30s"},
+            "Supra": {"SxR": "4x15", "Técnica Avançada": ""}
+        }
+    },
+    "Treino C": {
+        "Musculação": "Panturrilha + Coxa",
+        "Intervalo de descanso": "60 a 90s",
+        "Dia": ["Wednesday"],
+        "Exercícios": {
+            "Gêmeos Em Pé Smith": {"SxR": "10x10", "Técnica Avançada": "GVT"},
+            "Gêmeos Em Pé Livre": {"SxR": "2x12", "Técnica Avançada": "Rest 'n' Pause 3x"},
+            "Leg Press Adutores": {"SxR": "4x12", "Técnica Avançada": "Drop-Set 3x"},
+            "Agachamento Livre": {"SxR": "4x12", "Técnica Avançada": ""},
+            "Cadeira Extensora": {"SxR": "3x12", "Técnica Avançada": ""},
+            "Stiff Barra": {"SxR": "4x10", "Técnica Avançada": ""},
+            "Cadeira Adutora": {"SxR": "4x12", "Técnica Avançada": ""},
+            "Cadeira Abdutora": {"SxR": "3x15", "Técnica Avançada": ""}
+        }
+    },
+    "Treino D": {
+        "Musculação": "Deltóides + Trapézio",
+        "Intervalo de descanso": "45 a 60s",
+        "Dia": ["Thursday"],
+        "Exercícios": {
+            "Manguito Rotador Externo Halteres": {"SxR": "2x8", "Técnica Avançada": ""},
+            "Elevação Lateral Halteres": {"SxR": "3x8", "Técnica Avançada": ""},
+            "Elevação Frontal Halteres Peg Pronada + Desenvolvimento Halteres": {"SxR": "5x8", "Técnica Avançada": "Bi-Set"},
+            "Remada Alta Halteres": {"SxR": "4x12", "Técnica Avançada": ""},
+            "Encolhimento Halteres": {"SxR": "4x10", "Técnica Avançada": ""},
+            "Encolhimento Smith Anterior": {"SxR": "4x8", "Técnica Avançada": "Drop-Set 3x"}
+        }
+    },
+    "Treino E": {
+        "Musculação": "Bíceps + Tríceps + Abdômen",
+        "Intervalo de descanso": "45 a 60s",
+        "Dia": ["Friday"],
+        "Exercícios": {
+            "Rosca Direta Cross": {"SxR": "4x8", "Técnica Avançada": "Rest 'n' Pause 3x"},
+            "Rosca Alternada Halteres": {"SxR": "4x10", "Técnica Avançada": ""},
+            "Rosca Direta Halteres": {"SxR": "4x8", "Técnica Avançada": ""},
+            "Rosca Francesa Anilha": {"SxR": "4x8", "Técnica Avançada": ""},
+            "Tríceps Pulley Corda + Tríceps Pulley Peg Pronada": {"SxR": "4x12", "Técnica Avançada": "Bi-Set"},
+            "Supra": {"SxR": "4x15", "Técnica Avançada": "Descanso 30s"},
+            "Oblíquos": {"SxR": "4x12", "Técnica Avançada": "Descanso 30s"}
+        }
     }
+}
   ]
 }
