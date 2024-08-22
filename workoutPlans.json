@@ -80,7 +80,8 @@
         "Descrição": "Treino para ganho de resistência."
       },
       "access": [
-        
+        "eu",
+        "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253"
       ],
       "Treino A": {
         "Musculação": "Peitoral + Abdômen",
