@@ -73,15 +73,14 @@
        }
     },
     {
-      "id": "workout_001",
+      "id": "workout_002",
       "dono_do_treino": "user_00",
       "tipo_de_treino": "RML",
       "obs": {
         "Descrição": "Treino para ganho de resistência."
       },
       "access": [
-        "eu",
-        "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253"
+        "4670acdddb971405c744f2770917e1f0e6fb957bc10b4c730dab212459f70253", "me"
       ],
       "Treino A": {
         "Musculação": "Peitoral + Abdômen",
@@ -159,79 +158,6 @@
           "Rotacional de Punho": { "SxR": "4xF", "Técnica Avançada": "Rest 'n' Pause 3x" }
         }
       }
-  },
-  {
-    "id": "workout_002",
-    "dono_do_treino": "user_00",
-    "tipo_de_treino": "Força",
-    "obs": {
-      "Descrição": "Treino para ganho de força."
-    },
-    "access": [],
-    "Treino A": {
-      "Musculação": "Peitoral + Abdômen",
-      "Intervalo de descanso": "30 a 45s",
-      "Dia": ["Monday"],
-      "Exercícios": {
-        "Supino Inclinado Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
-        "Supino Reto Barra": { "SxR": "4x20", "Técnica Avançada": "" },
-        "Crucifixo Reto Halteres": { "SxR": "5x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Peck Deck": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Oblíquos": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
-        "Supra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
-        "Infra": { "SxR": "4x20", "Técnica Avançada": "Descanso 30s" }
-      }
-    },
-    "Treino B": {
-      "Musculação": "Dorsais + Panturrilha",
-      "Intervalo de descanso": "30 a 45s",
-        "Dia": ["Tuesday"],
-      "Exercícios": {
-        "Puxada Vertical Peg Pronada": { "SxR": "4x15", "Técnica Avançada": "Drop-Set 3x" },
-        "Remada Curvada Peg Supinada": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Remada Máquina Peg Neutra": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Levantamento Terra": { "SxR": "4x20", "Técnica Avançada": "" },
-        "Gêmeos Em Pé Smith": { "SxR": "5x25", "Técnica Avançada": "" },
-        "Gêmeos Leg Press": { "SxR": "3x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Gêmeos Em Pé Livre": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" }
-      }
-    },
-    "Treino C": {
-      "Musculação": "Coxa",
-      "Intervalo de descanso": "45 a 60s",
-        "Dia": ["Wednesday"],
-      "Exercícios": {
-        "Leg Press": { "SxR": "3x20", "Técnica Avançada": "" },
-        "Stiff Smith": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Cadeira Extensora": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Agachamento Livre": { "SxR": "4x20", "Técnica Avançada": "" }
-      }
-    },
-    "Treino D": {
-      "Musculação": "Deltóides + Abdômen",
-      "Intervalo de descanso": "30 a 45s",
-        "Dia": ["Thursday"],
-      "Exercícios": {
-        "Desenvolvimento Anterior": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Crucifixo Inverso Halteres": { "SxR": "5x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Infra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" },
-        "Oblíquos": { "SxR": "4x20", "Técnica Avançada": "Descanso 30s" },
-        "Supra": { "SxR": "3x15", "Técnica Avançada": "Descanso 30s" }
-      }
-    },
-    "Treino E": {
-      "Musculação": "Bíceps + Tríceps",
-      "Intervalo de descanso": "30 a 45s",
-        "Dia": ["Friday"],
-      "Exercícios": {
-        "Rosca Alternada Halteres": { "SxR": "2x20", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Rosca Direta Halteres": { "SxR": "3x15", "Técnica Avançada": "" },
-        "Rosca Concentrada": { "SxR": "5x15", "Técnica Avançada": "" },
-        "Rosca Testa Barra Peg Pronada": { "SxR": "3x15", "Técnica Avançada": "Rest 'n' Pause 3x" },
-        "Rosca Testa Halteres Peg Neutra": { "SxR": "2x20", "Técnica Avançada": "" },
-        "Supino Fechado": { "SxR": "4x20", "Técnica Avançada": "" }
-      }
-    }
   },
     {
       "id": "workout_003",
